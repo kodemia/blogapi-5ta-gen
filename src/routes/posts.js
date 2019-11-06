@@ -42,6 +42,7 @@ router.post('/', async (request, response) => {
 router.get('/', async (request, response) => {
   try {
     const allPosts = await posts.getAll()
+
     response.json({
       message: 'All posts',
       success: true,
@@ -62,7 +63,6 @@ router.get('/', async (request, response) => {
 router.delete('/:id', async (request, response) => {
   try {
     const { id } = request.params
-
     const deletedPost = await posts.deleteById(id)
 
     response.json({
